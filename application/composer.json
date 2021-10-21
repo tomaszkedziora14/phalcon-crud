@@ -1,0 +1,17 @@
+{
+    "require": {
+        "phalcon/devtools": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Application\\": "app/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
