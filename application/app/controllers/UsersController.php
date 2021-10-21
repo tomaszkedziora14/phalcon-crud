@@ -26,8 +26,6 @@ class UsersController extends Controller
         $this->tag->setDefault("email", $user->email);
     }
 
-
-
     public function createAction()
     {
         $user = new Users();
