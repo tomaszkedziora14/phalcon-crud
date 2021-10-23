@@ -6,7 +6,20 @@ class UsersController extends Controller
 {
     public function indexAction()
     {
-        $this->view->users = Users::find();
+        $currentPage = $this->request->getQuery('page', 'int'); // GET
+        $users =  Users::find();
+
+        $paginator = new \Phalcon\Paginator\Adapter\Model(
+            array(
+                "data" => $users,
+                "limit"=> 3,
+                "page" => $currentPage
+            )
+        );
+
+
+        $page = $paginator->getPaginate();
+        $this->view->page = $page;
     }
 
     public function newAction()

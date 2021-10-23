@@ -39,8 +39,8 @@ echo $this->tag->linkTo(["users/new", "create User", 'class' => 'btn btn-primary
 
 ?>
 
-<a href="/index">First</a>
-<a href="/index?page=<?= $page->before; ?>">Previous</a>
-<a href="/index?page=<?= $page->next; ?>">Next</a>
-<a href="/index?page=<?= $page->last; ?>">Last</a>
+<a href="/index" class="btn btn-outline-primary" role="button" aria-pressed="true">First</a>
+<a href="/index?page=<?= $page->before; ?>" class="btn btn-outline-primary" role="button" aria-pressed="true">Previous</a>
+<a href="/index?page=<?= $page->next; ?>" class="btn btn-outline-primary" role="button" aria-pressed="true">Next</a>
+<a href="/index?page=<?= $page->last; ?>" class="btn btn-outline-primary" role="button" aria-pressed="true">Last</a>
 

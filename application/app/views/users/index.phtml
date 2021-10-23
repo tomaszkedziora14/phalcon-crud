@@ -4,37 +4,43 @@ echo "<h1>UserController</h1>";
 
 echo $this->tag->linkTo(["users/new", "create User", 'class' => 'btn btn-primary']);
 
-if ($users->count() > 0) {
-    ?>
-    <table class="table table-bordered table-hover">
-        <thead class="thead-light">
+?>
+<table class="table table-bordered table-hover">
+    <thead class="thead-light">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>last Name</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <td colspan="3">Users quantity: <?php  ?></td>
+    </tr>
+    </tfoot>
+    <tbody>
+    <?php foreach ($page->items as $user) { ?>
         <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>last Name</th>
-            <th>Email</th>
-            <th></th>
-            <th></th>
-        </tr>
-        </thead>
-        <tfoot>
-        <tr>
-            <td colspan="3">Users quantity: <?php echo $users->count(); ?></td>
-        </tr>
-        </tfoot>
-        <tbody>
-        <?php foreach ($users as $user) { ?>
-            <tr>
-                <td><?php echo $user->id; ?></td>
-                <td><?php echo $user->name; ?></td>
-                <td><?php echo $user->last_name; ?></td>
-                <td><?php echo $user->email; ?></td>
+            <td><?php echo $user->id; ?></td>
+            <td><?php echo $user->name; ?></td>
+            <td><?php echo $user->last_name; ?></td>
+            <td><?php echo $user->email; ?></td>
 
-                <td><?php echo $this->tag->linkTo(["users/edit/" . $user->id, "Edit",'class' => 'btn btn-success']); ?></td>
-                <td><?php echo $this->tag->linkTo(["users/delete/" . $user->id, "Delete",'class' => 'btn btn-danger']); ?></td>
-            </tr>
-        <?php } ?>
-        </tbody>
-    </table>
-    <?php
-}
+            <td><?php echo $this->tag->linkTo(["users/edit/" . $user->id, "Edit",'class' => 'btn btn-success']); ?></td>
+            <td><?php echo $this->tag->linkTo(["users/delete/" . $user->id, "Delete",'class' => 'btn btn-danger']); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+<?php
+
+?>
+
+<a href="/users/index" class="btn btn-outline-primary" role="button" aria-pressed="true">First</a>
+<a href="/users/index?page=<?= $page->before; ?>" class="btn btn-outline-primary" role="button" aria-pressed="true">Previous</a>
+<a href="/users/index?page=<?= $page->next; ?>" class="btn btn-outline-primary" role="button" aria-pressed="true">Next</a>
+<a href="/users/index?page=<?= $page->last; ?>" class="btn btn-outline-primary" role="button" aria-pressed="true">Last</a>
+
