@@ -5,6 +5,7 @@ use Phalcon\Mvc\Model;
 use Phalcon\Validation;
 use Phalcon\Validation\Validator\Uniqueness;
 use Phalcon\Validation\Validator\Email;
+use Phalcon\Validation\Validator\PresenceOf;
 
 class Users extends Model
 {
@@ -25,6 +26,14 @@ class Users extends Model
                 ]
             )
         );
+
+        $validator->add('name', new PresenceOf(array(
+            'message' => 'The name is required'
+        )));
+
+        $validator->add('last_name', new PresenceOf(array(
+            'message' => 'The last name is required'
+        )));
 
         $validator->add('email', new Email(array(
             'message' => 'The e-mail is not valid'

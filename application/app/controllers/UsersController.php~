@@ -6,7 +6,18 @@ class UsersController extends Controller
 {
     public function indexAction()
     {
-        $this->view->users = Users::find();
+        $currentPage = (int) $_GET["page"];
+        $users = Users::find();
+
+        $paginator = new \Phalcon\Paginator\Adapter\Model(
+            array(
+                "data" => $users,
+                "limit"=> 10,
+                "page" => $currentPage
+            )
+        );
+        $page = $paginator->getPaginate();
+        $this->view->page = $page;
     }
 
     public function newAction()
@@ -25,8 +36,6 @@ class UsersController extends Controller
         $this->tag->setDefault("lastName", $user->last_name);
         $this->tag->setDefault("email", $user->email);
     }
-
-
 
     public function createAction()
     {
