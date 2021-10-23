@@ -19,6 +19,7 @@ class UsersController extends Controller
 
 
         $page = $paginator->getPaginate();
+        $this->view->users = $users;
         $this->view->page = $page;
     }
 

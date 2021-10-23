@@ -18,7 +18,7 @@ echo $this->tag->linkTo(["users/new", "create User", 'class' => 'btn btn-primary
     </thead>
     <tfoot>
     <tr>
-        <td colspan="3">Users quantity: <?php  ?></td>
+        <td colspan="3">Users quantity: <?php  echo $users->count(); ?></td>
     </tr>
     </tfoot>
     <tbody>
