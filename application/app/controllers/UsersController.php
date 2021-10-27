@@ -46,6 +46,7 @@ class UsersController extends Controller
 
         if($this->request->isPost()) {
 
+            // Data Mapper design pattern
             $user->name = $this->request->getPost("name");
             $user->last_name = $this->request->getPost("lastName");
             $user->email = $this->request->getPost("email");
