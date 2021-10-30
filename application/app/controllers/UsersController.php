@@ -19,7 +19,7 @@ class UsersController extends Controller
 
 
         $page = $paginator->getPaginate();
-    
+
         $this->view->users = $users;
         $this->view->page = $page;
     }
@@ -32,8 +32,6 @@ class UsersController extends Controller
     public function editAction($id)
     {
         $user =  Users::findFirst($id);
-
-        $this->view->id = $user->id;
 
         $this->tag->setDefault("id", $user->id);
         $this->tag->setDefault("name", $user->name);
