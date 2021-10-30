@@ -19,6 +19,8 @@ class UsersController extends Controller
 
 
         $page = $paginator->getPaginate();
+        echo '<pre>';
+      //  var_dump($page); exit;
         $this->view->users = $users;
         $this->view->page = $page;
     }
