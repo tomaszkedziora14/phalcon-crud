@@ -32,8 +32,6 @@ class UsersController extends Controller
     public function editAction($id)
     {
         $user =  Users::findFirst($id);
-echo 1 ;
-    echo $this->router->getRewriteUri();
 
         $this->tag->setDefault("id", $user->id);
         $this->tag->setDefault("name", $user->name);
@@ -72,7 +70,7 @@ echo 1 ;
     {
         $id = $this->request->getPost("id");
         $user =  Users::findFirst($id);
-echo 1 ;
+
         if($this->request->isPost()) {
 
             $user->name = $this->request->getPost("name");
