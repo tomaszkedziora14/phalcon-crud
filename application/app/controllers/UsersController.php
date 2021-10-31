@@ -32,6 +32,8 @@ class UsersController extends Controller
     public function editAction($id)
     {
         $user =  Users::findFirst($id);
+echo 1 ;
+    echo $this->router->getRewriteUri();
 
         $this->tag->setDefault("id", $user->id);
         $this->tag->setDefault("name", $user->name);
@@ -70,15 +72,17 @@ class UsersController extends Controller
     {
         $id = $this->request->getPost("id");
         $user =  Users::findFirst($id);
-
+echo 1 ;
         if($this->request->isPost()) {
 
             $user->name = $this->request->getPost("name");
             $user->last_name = $this->request->getPost("lastName");
             $user->email = $this->request->getPost("email");
 
+
+
             if ($user->save()) {
-                $this->response->redirect("users/index");
+                $this->response->redirect("users/index?page=".$this->request->getPost("numPage"));
             } else {
                 echo "Sorry, the following problems were generated: ";
 

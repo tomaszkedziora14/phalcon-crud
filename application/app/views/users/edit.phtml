@@ -1,5 +1,7 @@
 <h2>Edit User</h2>
 
+<?php $numbPage = substr($this->router->getRewriteUri(),15); ?>
+
 <?php echo $this->tag->form("users/update"); ?>
 
 <p>
@@ -12,18 +14,18 @@
     <?php echo $this->tag->textField("lastName"); ?>
 </p>
 
-
 <p>
     <label for="email">E-Mail</label>
     <?php echo $this->tag->textField("email"); ?>
 </p>
 
-<?php echo $this->tag->hiddenField("id") ?>
 
+<?php echo $this->tag->hiddenField(["numPage","type"=>"hidden","value"=>$numbPage]); ?>
+
+<?php echo $this->tag->hiddenField("id") ?>
 
 <p>
     <?php echo $this->tag->submitButton("save"); ?>
 </p>
 
 </form>
-
