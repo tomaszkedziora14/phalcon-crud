@@ -1,6 +1,9 @@
 <?php
 
+// namespace App\Controllers;
+
 use Phalcon\Mvc\Controller;
+// use App\Models\Users;
 
 class UsersController extends Controller
 {
@@ -76,8 +79,6 @@ class UsersController extends Controller
             $user->name = $this->request->getPost("name");
             $user->last_name = $this->request->getPost("lastName");
             $user->email = $this->request->getPost("email");
-
-
 
             if ($user->save()) {
                 $this->response->redirect("users/index?page=".$this->request->getPost("numPage"));

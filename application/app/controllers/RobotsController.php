@@ -4,6 +4,10 @@ class RobotsController extends ControllerBase
 {
     public function indexAction()
     {
-        echo 1111;
+        $robot = Robots::findFirst(1);
+
+        foreach ($robot->robotsParts as $robotPart) {
+          echo $robotPart->parts->name, "\n";
+        }
     }
 }
