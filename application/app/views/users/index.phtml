@@ -45,9 +45,9 @@ echo $this->tag->linkTo(["users/new", "create User", 'class' => 'btn btn-primary
 <?php $numb = $page->total_pages; ?>
 <?php $array = range(0,$numb); ?>
 <?php unset($array[0]);  ?>
-
+<?php $active = "active"; ?>
 <?php foreach ($array as $pages) { ?>
-<a href="/users/index?page=<?= $pages; ?>" class="btn btn-outline-primary" role="button" aria-pressed="true"><?php echo $pages;?></a>
+    <a href="/users/index?page=<?= $pages; ?>" class="btn btn-outline-primary <?= $pages == $this->request->getQuery('page', 'int') ? $active : '';  ?>" role="button" aria-pressed="true"><?php echo $pages;?></a>
 <?php } ?>
 
 

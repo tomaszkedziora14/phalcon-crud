@@ -13,12 +13,6 @@ class RobotsParts extends Model
     public function initialize()
     {
         $this->belongsTo(
-            'robots_id',
-            'Store\Toys\Robots',
-            'id'
-        );
-
-        $this->belongsTo(
             'parts_id',
             'Parts',
             'id'
